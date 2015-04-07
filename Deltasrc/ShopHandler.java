@@ -89,7 +89,7 @@ public class ShopHandler {
         int ReadMode = 0;
         BufferedReader characterfile = null;
         try {
-            characterfile = new BufferedReader(new FileReader("./" + FileName));
+            characterfile = new BufferedReader(new FileReader("./lib/" + FileName));
         } catch (FileNotFoundException fileex) {
             misc.println(FileName + ": file not found.");
             return false;
