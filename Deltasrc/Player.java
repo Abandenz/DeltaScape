@@ -884,7 +884,7 @@ public abstract class Player {
 
         //Stat fix, combat decreases when your hp or any of these skills get lowerd, this fixes that problem.
         /*int att = (int)((double)(getLevelForXP(playerXP[0])) * 0.325);
-		int def = (int)((double)(getLevelForXP(playerXP[1])) * 0.25);
+        int def = (int)((double)(getLevelForXP(playerXP[1])) * 0.25);
 		int str = (int)((double)(getLevelForXP(playerXP[2])) * 0.325);
 		int hit = (int)((double)(getLevelForXP(playerXP[3])) * 0.25);
 		int mag = (int)((double)(getLevelForXP(playerXP[4])) * 0.4875);

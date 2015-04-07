@@ -457,10 +457,7 @@ Go = false;
         if (NewMoveX <= npcs[NPCID].moverangeX1 && NewMoveX >= npcs[NPCID].moverangeX2 && NewMoveY <= npcs[NPCID].moverangeY1 && NewMoveY >= npcs[NPCID].moverangeY2) {
             if ((npcs[NPCID].walkingType == 1 && IsInWorldMap(NewMoveX, NewMoveY) == true) || (npcs[NPCID].walkingType == 2 && IsInWorldMap2(NewMoveX, NewMoveY) == false)) {
                 if (MoveX == MoveY) {
-                    if ((IsInWorldMap(NewMoveX, npcs[NPCID].absY) == true && IsInWorldMap(npcs[NPCID].absX, NewMoveY) == true) || (IsInWorldMap2(NewMoveX, npcs[NPCID].absY) == false && IsInWorldMap2(npcs[NPCID].absX, NewMoveY) == false)) {
-                        return true;
-                    }
-                    return false;
+                    return (IsInWorldMap(NewMoveX, npcs[NPCID].absY) == true && IsInWorldMap(npcs[NPCID].absX, NewMoveY) == true) || (IsInWorldMap2(NewMoveX, npcs[NPCID].absY) == false && IsInWorldMap2(npcs[NPCID].absX, NewMoveY) == false);
                 }
                 return true;
             }
@@ -590,7 +587,7 @@ Go = false;
                     } else if (npcs[i].IsUnderAttackNpc == true) {
                         AttackNPC(i);
                                                 /*if(misc.random(50) == 1) {
-							npcs[i].updateRequired = true;
+                            npcs[i].updateRequired = true;
 							npcs[i].textUpdateRequired = true;
 							npcs[i].textUpdate = "I had ya ma last night bitch";
                                                 }

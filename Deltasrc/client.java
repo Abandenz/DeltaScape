@@ -559,7 +559,7 @@ outStream.endFrameVarSizeWord();
     }
     // tileObjectType: 0-3 wall objects, 4-8 wall decoration, 9: diag. walls, 10-11 world objects, 12-21: roofs, 22: floor decoration
     /*public void createNewTileObject(int x, int y, int typeID, int orientation, int tileObjectType)
-	{
+    {
 		outStream.createFrame(85);
 		outStream.writeByteC(y & ~7);	// packetTileCoordY
 		outStream.writeByteC(x & ~7);	// packetTileCoordX
@@ -633,10 +633,7 @@ outStream.endFrameVarSizeWord();
     }
 
     public boolean nonattackable(int npcIndex) {
-        if (NPCHandler.npcs[npcIndex].npcType == 27 || NPCHandler.npcs[npcIndex].npcType == 649 || NPCHandler.npcs[npcIndex].npcType == 649 || NPCHandler.npcs[npcIndex].npcType == 541 || NPCHandler.npcs[npcIndex].npcType == 2862 || NPCHandler.npcs[npcIndex].npcType == 14 || NPCHandler.npcs[npcIndex].npcType == 538 || NPCHandler.npcs[npcIndex].npcType == 538 || NPCHandler.npcs[npcIndex].npcType == 537 || NPCHandler.npcs[npcIndex].npcType == 520 || NPCHandler.npcs[npcIndex].npcType == 551 || NPCHandler.npcs[npcIndex].npcType == 2909 || NPCHandler.npcs[npcIndex].npcType == 2909 || NPCHandler.npcs[npcIndex].npcType == 946 || NPCHandler.npcs[npcIndex].npcType == 985 || NPCHandler.npcs[npcIndex].npcType == 985 || NPCHandler.npcs[npcIndex].npcType == 554 || NPCHandler.npcs[npcIndex].npcType == 1702 || NPCHandler.npcs[npcIndex].npcType == 220 || NPCHandler.npcs[npcIndex].npcType == 201 || NPCHandler.npcs[npcIndex].npcType == 550 || NPCHandler.npcs[npcIndex].npcType == 1001 || NPCHandler.npcs[npcIndex].npcType == 3283 || NPCHandler.npcs[npcIndex].npcType == 3283 || NPCHandler.npcs[npcIndex].npcType == 2195 || NPCHandler.npcs[npcIndex].npcType == 946 || NPCHandler.npcs[npcIndex].npcType == 546 || NPCHandler.npcs[npcIndex].npcType == 536 || NPCHandler.npcs[npcIndex].npcType == 526 || NPCHandler.npcs[npcIndex].npcType == 548 || NPCHandler.npcs[npcIndex].npcType == 524 || NPCHandler.npcs[npcIndex].npcType == 526 || NPCHandler.npcs[npcIndex].npcType == 541 || NPCHandler.npcs[npcIndex].npcType == 660 || NPCHandler.npcs[npcIndex].npcType == 3394 || NPCHandler.npcs[npcIndex].npcType == 917 || NPCHandler.npcs[npcIndex].npcType == 1 || NPCHandler.npcs[npcIndex].npcType == 3782 || NPCHandler.npcs[npcIndex].npcType == 3772 || NPCHandler.npcs[npcIndex].npcType == 1694) {
-            return true;
-        }
-        return false;
+        return NPCHandler.npcs[npcIndex].npcType == 27 || NPCHandler.npcs[npcIndex].npcType == 649 || NPCHandler.npcs[npcIndex].npcType == 649 || NPCHandler.npcs[npcIndex].npcType == 541 || NPCHandler.npcs[npcIndex].npcType == 2862 || NPCHandler.npcs[npcIndex].npcType == 14 || NPCHandler.npcs[npcIndex].npcType == 538 || NPCHandler.npcs[npcIndex].npcType == 538 || NPCHandler.npcs[npcIndex].npcType == 537 || NPCHandler.npcs[npcIndex].npcType == 520 || NPCHandler.npcs[npcIndex].npcType == 551 || NPCHandler.npcs[npcIndex].npcType == 2909 || NPCHandler.npcs[npcIndex].npcType == 2909 || NPCHandler.npcs[npcIndex].npcType == 946 || NPCHandler.npcs[npcIndex].npcType == 985 || NPCHandler.npcs[npcIndex].npcType == 985 || NPCHandler.npcs[npcIndex].npcType == 554 || NPCHandler.npcs[npcIndex].npcType == 1702 || NPCHandler.npcs[npcIndex].npcType == 220 || NPCHandler.npcs[npcIndex].npcType == 201 || NPCHandler.npcs[npcIndex].npcType == 550 || NPCHandler.npcs[npcIndex].npcType == 1001 || NPCHandler.npcs[npcIndex].npcType == 3283 || NPCHandler.npcs[npcIndex].npcType == 3283 || NPCHandler.npcs[npcIndex].npcType == 2195 || NPCHandler.npcs[npcIndex].npcType == 946 || NPCHandler.npcs[npcIndex].npcType == 546 || NPCHandler.npcs[npcIndex].npcType == 536 || NPCHandler.npcs[npcIndex].npcType == 526 || NPCHandler.npcs[npcIndex].npcType == 548 || NPCHandler.npcs[npcIndex].npcType == 524 || NPCHandler.npcs[npcIndex].npcType == 526 || NPCHandler.npcs[npcIndex].npcType == 541 || NPCHandler.npcs[npcIndex].npcType == 660 || NPCHandler.npcs[npcIndex].npcType == 3394 || NPCHandler.npcs[npcIndex].npcType == 917 || NPCHandler.npcs[npcIndex].npcType == 1 || NPCHandler.npcs[npcIndex].npcType == 3782 || NPCHandler.npcs[npcIndex].npcType == 3772 || NPCHandler.npcs[npcIndex].npcType == 1694;
     }
 
     public boolean preaching() {
@@ -711,8 +708,7 @@ outStream.endFrameVarSizeWord();
     public boolean HasAirStaff() {
         if (playerEquipment[playerWeapon] == 1381) return true;//Staff_of_air
         if (playerEquipment[playerWeapon] == 1397) return true;//Air_battlestaff
-        if (playerEquipment[playerWeapon] == 1405) return true;//Mystic_air_staff
-        return false;
+        return playerEquipment[playerWeapon] == 1405;
     }
 
     public void resetserver() {
@@ -1198,11 +1194,8 @@ outStream.endFrameVarSizeWord();
 /*MISC*/
 
     public boolean nonWild() {
-        if ((absX >= 3249 && absX <= 3258 && absY >= 3438 && absY <= 3431) || (absX >= 3039 && absX <= 3111 && absY >= 3475 && absY <= 3523) || (absX >= 2790 && absX <= 2855 && absY >= 3418 && absY <= 3466) || (absX >= 2584 && absX <= 2612 && absY >= 3153 && absY <= 3169) || (absX >= 2935 && absX <= 3066 && absY >= 2935 && absY <= 3399) || (absX >= 3249 && absX <= 3260 && absY >= 3435 && absY <= 3437) || (absX >= 3249 && absX <= 3253 && absY >= 3431 && absY <= 3437) || (absX >= 3250 && absX <= 3257 && absY >= 3419 && absY <= 3423) || (absX >= 3250 && absX <= 3257 && absY >= 3419 && absY <= 3423) || (absX >= 2747 && absX <= 2758 && absY >= 2794 && absY <= 2802) || (absX >= 2764 && absX <= 2776 && absY >= 2793 && absY <= 2802) || (absX >= 2773 && absX <= 2780 && absY >= 2766 && absY <= 2770) || (absX >= 2751 && absX <= 2770 && absY >= 2764 && absY <= 2777) || (absX >= 2785 && absX <= 2809 && absY >= 2771 && absY <= 2801) || (absX >= 2732 && absX <= 2740 && absY >= 2789 && absY <= 2796) || (absX >= 2861 && absX <= 2872 && absY >= 10186 && absY <= 10212) || (absX >= 3409 && absX <= 3452 && absY >= 3532 && absY <= 3575) || (absX >= 2435 && absX <= 2447 && absY >= 3080 && absY <= 3099) || (absX >= 3267 && absX <= 3332 && absY >= 3149 && absY <= 3270) || (absX >= 3151 && absX <= 3182 && absY >= 3220 && absY <= 3272) || (absX >= 3032 && absX <= 3063 && absY >= 3424 && absY <= 3457) || (absX >= 3476 && absX <= 3501 && absY >= 9483 && absY <= 9505) || (absX >= 2942 && absX <= 2992 && absY >= 3390 && absY <= 3414) || (absX >= 2420 && absX <= 2431 && absY >= 3072 && absY <= 3083) || (absX >= 3071 && absX <= 3122 && absY >= 3456 && absY <= 3523) || (absX >= 3101 && absX <= 3124 && absY >= 9825 && absY <= 9849) || (absX >= 2585 && absX <= 2605 && absY >= 3153 && absY <= 3169) || (absX >= 2853 && absX <= 2926 && absY >= 3530 && absY <= 3577) || (absX >= 2579 && absX <= 2622 && absY >= 3841 && absY <= 3902) || (absX >= 2887 && absX <= 2699 && absY >= 2939 && absY <= 2741) || (absX >= 2742 && absX <= 2815 && absY >= 3146 && absY <= 3235) || (absX >= 2692 && absX <= 2810 && absY >= 2690 && absY <= 2808) || (absX >= 2437 && absX <= 2446 && absY >= 3082 && absY <= 3098) || (absX >= 2805 && absX <= 2878 && absY >= 3222 && absY <= 3313) ||
-                heightLevel == 1)
-            return true;
-        else
-            return false;
+        return (absX >= 3249 && absX <= 3258 && absY >= 3438 && absY <= 3431) || (absX >= 3039 && absX <= 3111 && absY >= 3475 && absY <= 3523) || (absX >= 2790 && absX <= 2855 && absY >= 3418 && absY <= 3466) || (absX >= 2584 && absX <= 2612 && absY >= 3153 && absY <= 3169) || (absX >= 2935 && absX <= 3066 && absY >= 2935 && absY <= 3399) || (absX >= 3249 && absX <= 3260 && absY >= 3435 && absY <= 3437) || (absX >= 3249 && absX <= 3253 && absY >= 3431 && absY <= 3437) || (absX >= 3250 && absX <= 3257 && absY >= 3419 && absY <= 3423) || (absX >= 3250 && absX <= 3257 && absY >= 3419 && absY <= 3423) || (absX >= 2747 && absX <= 2758 && absY >= 2794 && absY <= 2802) || (absX >= 2764 && absX <= 2776 && absY >= 2793 && absY <= 2802) || (absX >= 2773 && absX <= 2780 && absY >= 2766 && absY <= 2770) || (absX >= 2751 && absX <= 2770 && absY >= 2764 && absY <= 2777) || (absX >= 2785 && absX <= 2809 && absY >= 2771 && absY <= 2801) || (absX >= 2732 && absX <= 2740 && absY >= 2789 && absY <= 2796) || (absX >= 2861 && absX <= 2872 && absY >= 10186 && absY <= 10212) || (absX >= 3409 && absX <= 3452 && absY >= 3532 && absY <= 3575) || (absX >= 2435 && absX <= 2447 && absY >= 3080 && absY <= 3099) || (absX >= 3267 && absX <= 3332 && absY >= 3149 && absY <= 3270) || (absX >= 3151 && absX <= 3182 && absY >= 3220 && absY <= 3272) || (absX >= 3032 && absX <= 3063 && absY >= 3424 && absY <= 3457) || (absX >= 3476 && absX <= 3501 && absY >= 9483 && absY <= 9505) || (absX >= 2942 && absX <= 2992 && absY >= 3390 && absY <= 3414) || (absX >= 2420 && absX <= 2431 && absY >= 3072 && absY <= 3083) || (absX >= 3071 && absX <= 3122 && absY >= 3456 && absY <= 3523) || (absX >= 3101 && absX <= 3124 && absY >= 9825 && absY <= 9849) || (absX >= 2585 && absX <= 2605 && absY >= 3153 && absY <= 3169) || (absX >= 2853 && absX <= 2926 && absY >= 3530 && absY <= 3577) || (absX >= 2579 && absX <= 2622 && absY >= 3841 && absY <= 3902) || (absX >= 2887 && absX <= 2699 && absY >= 2939 && absY <= 2741) || (absX >= 2742 && absX <= 2815 && absY >= 3146 && absY <= 3235) || (absX >= 2692 && absX <= 2810 && absY >= 2690 && absY <= 2808) || (absX >= 2437 && absX <= 2446 && absY >= 3082 && absY <= 3098) || (absX >= 2805 && absX <= 2878 && absY >= 3222 && absY <= 3313) ||
+                heightLevel == 1;
     }
 
     public boolean isUntradable(int item) {
@@ -1216,25 +1209,15 @@ outStream.endFrameVarSizeWord();
 /*THEIVING*/
 
     public boolean cannonowner() {
-        if (playerName == cannonowner) {
-            return true;
-        } else {
-            return false;
-        }
+        return playerName == cannonowner;
     }
 
     public boolean hasAxe() {
-        if (playerHasItem2(6739) || playerHasItem2(1351) || playerHasItem2(1349) || playerHasItem2(1353) || playerHasItem2(1355) || playerHasItem2(1357) || playerHasItem2(1359) || playerHasItem2(1361)) {
-            return true;
-        }
-        return false;
+        return playerHasItem2(6739) || playerHasItem2(1351) || playerHasItem2(1349) || playerHasItem2(1353) || playerHasItem2(1355) || playerHasItem2(1357) || playerHasItem2(1359) || playerHasItem2(1361);
     }
 
     public boolean hasPick() {
-        if (playerHasItem2(1275) || playerHasItem2(1271) || playerHasItem2(1273) || playerHasItem2(1269) || playerHasItem2(1267) || playerHasItem2(1265)) {
-            return true;
-        }
-        return false;
+        return playerHasItem2(1275) || playerHasItem2(1271) || playerHasItem2(1273) || playerHasItem2(1269) || playerHasItem2(1267) || playerHasItem2(1265);
     }
 
 /*RUNECRAFT*/
@@ -3385,11 +3368,7 @@ break;*/
 
             if (playerEquipment[playerArrows] == k) {
                 HasArrows = true;
-            } else if (playerEquipment[playerWeapon] == 4214) {
-                HasArrows = true;
-            } else {
-                HasArrows = false;
-            }
+            } else HasArrows = playerEquipment[playerWeapon] == 4214;
 
         }
     }
@@ -3410,11 +3389,7 @@ break;*/
     }
 
     public void CheckWildrange(int pcombat) {
-        if (((combat + WildyLevel >= pcombat) && (pcombat >= combat)) || ((combat - WildyLevel <= pcombat) && (pcombat <= combat))) {
-            InWildrange = true;
-        } else {
-            InWildrange = false;
-        }
+        InWildrange = ((combat + WildyLevel >= pcombat) && (pcombat >= combat)) || ((combat - WildyLevel <= pcombat) && (pcombat <= combat));
     }
 
     // anInt1008 frames:
@@ -4776,11 +4751,7 @@ HEALING
 
     public boolean Has2Items(int itemID, int amount, int itemID2, int amount2) {
         if (HasItemAmount(itemID, amount)) {
-            if (HasItemAmount(itemID2, amount2)) {
-                return true;
-            } else {
-                return false;
-            }
+            return HasItemAmount(itemID2, amount2);
         } else {
             return false;
         }
@@ -4789,11 +4760,7 @@ HEALING
     public boolean Has3Items(int itemID, int amount, int itemID2, int amount2, int itemID3, int amount3) {
         if (HasItemAmount(itemID, amount)) {
             if (HasItemAmount(itemID2, amount2)) {
-                if (HasItemAmount(itemID3, amount3)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return HasItemAmount(itemID3, amount3);
             } else {
                 return false;
             }
@@ -5016,10 +4983,7 @@ HEALING
     }
 
     public boolean hasItem(int itemID, int slot) {
-        if (playerItems[slot] == itemID) {
-            return true;
-        }
-        return false;
+        return playerItems[slot] == itemID;
     }
 
     public int getItemSlotReturn(int itemID) {
@@ -5064,11 +5028,7 @@ HEALING
         /*END OF QUEST 1 INTS*/
 
     public boolean item2handed(int ID) {
-        if (ID == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return ID == 1;
     }
 
     /*SMITHING*/
@@ -5515,11 +5475,7 @@ HEALING
         if (item == 1079 && playerLevel[13] >= 99) {
             return true;
         }
-        if (item == 1079 || item == 1093 || item == 1319 || item == 1127 && playerLevel[13] >= 99) {
-            return true;
-        } else {
-            return false;
-        }
+        return item == 1079 || item == 1093 || item == 1319 || item == 1127 && playerLevel[13] >= 99;
 //return false;
     }
 
@@ -23911,18 +23867,12 @@ ProjectileSpellPlayer(155, 156, 157, absY, absX, offsetY, offsetX, index, EnemyY
     }
 
     public boolean FullDharokEquipped() {
-        if (playerEquipment[playerHat] == 4716 && playerEquipment[playerChest] == 4720 && playerEquipment[playerLegs] == 4722 && playerEquipment[playerWeapon] == 4718) {
-            return true;
-        }
-        return false;
+        return playerEquipment[playerHat] == 4716 && playerEquipment[playerChest] == 4720 && playerEquipment[playerLegs] == 4722 && playerEquipment[playerWeapon] == 4718;
 
     }
 
     public boolean FullGuthanEquipped() {
-        if (playerEquipment[playerHat] == 4724 && playerEquipment[playerChest] == 4728 && playerEquipment[playerLegs] == 4730 && playerEquipment[playerWeapon] == 4726) {
-            return true;
-        }
-        return false;
+        return playerEquipment[playerHat] == 4724 && playerEquipment[playerChest] == 4728 && playerEquipment[playerLegs] == 4730 && playerEquipment[playerWeapon] == 4726;
     }
 
     public void CalculateRange() {
@@ -24220,10 +24170,7 @@ MINING
                 GoFalse = true;
                 break;
         }
-        if (GoFalse == true) {
-            return false;
-        }
-        return true;
+        return GoFalse != true;
     }
 
     /*COOKING*/
