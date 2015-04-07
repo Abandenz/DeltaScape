@@ -1,3 +1,0 @@
-# DeltaScape
-DeltaSrc
-g
